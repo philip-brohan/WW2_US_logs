@@ -5,7 +5,16 @@
 
 import csv
 
-with open('complete_list.csv', 'r') as csvfile:
+# Get lists of catalog ID and yyyy-mm
+ids = []
+yyyymm = []
+with open("complete_list.csv", "r") as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
-        print("./download_log.py --id=%s" % row[0])
+        ids.append(row[0])
+        yyyymm.append(row[5][-7:])
+
+# Get catalogue ids in ascending date order
+ids2 = [x for _, x in sorted(zip(yyyymm, ids))]
+for id in ids2:
+    print("./download_log.py --id=%s" % id)

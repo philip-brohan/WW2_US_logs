@@ -30,8 +30,12 @@ for doc in docs:
     ftype = a_url[-3:].lower()
     if ftype == "jpg":
         fname = os.path.basename(a_url)
+        fyr = fname[-7:-3]
+        fmo = fname[-2:]
         ldir = os.path.basename(os.path.dirname(a_url))
-        ldir = "%s/WW2_US_logs/%s" % (os.getenv("SCRATCH"), ldir)
+        fyr = ldir[-7:-3]
+        fmo = ldir[-2:]
+        ldir = "%s/WW2_US_logs/%s/%s/%s" % (os.getenv("SCRATCH"), fyr, fmo, ldir)
         if not os.path.exists(ldir):
             os.makedirs(ldir)
         # Already got?
