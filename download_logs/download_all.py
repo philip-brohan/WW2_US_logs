@@ -14,7 +14,16 @@ with open("complete_list.csv", "r") as csvfile:
         ids.append(row[0])
         yyyymm.append(row[5][-7:])
 
+# Get list of IDs already done
+done = []
+with open("run.out", "r") as tfile:
+    for line in tfile:
+        if line[-3:-1] == 'OK':
+           done.append(line[:-4])
+
+
 # Get catalogue ids in ascending date order
 ids2 = [x for _, x in sorted(zip(yyyymm, ids))]
 for id in ids2:
-    print("./download_log.py --id=%s" % id)
+    if id not in done: 
+        print("./download_log.py --id=%s" % id)
