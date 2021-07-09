@@ -4,5 +4,6 @@ channels:
   - conda-forge
 dependencies:
   - python=3.7
+  - awscli
 # Optional, code formatter
   - black

@@ -19,7 +19,7 @@ args = parser.parse_args()
 mdir = "moose:/adhoc/projects/20cr/document_images/ships/WW2_US_logs"
 
 # Disc data dir
-ddir = "%s/WW2_US_logs" % (os.environ["SCRATCH"])
+ddir = "%s/WW2_US_logs" % (os.environ["DATADIR"])
 
 # Don't overwrite if alerady archived
 proc = subprocess.Popen(

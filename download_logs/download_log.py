@@ -35,7 +35,7 @@ for doc in docs:
         ldir = os.path.basename(os.path.dirname(a_url))
         fyr = ldir[-7:-3]
         fmo = ldir[-2:]
-        ldir = "%s/WW2_US_logs/%s/%s/%s" % (os.getenv("SCRATCH"), fyr, fmo, ldir)
+        ldir = "%s/WW2_US_logs/%s/%s/%s" % (os.getenv("DATADIR"), fyr, fmo, ldir)
         if not os.path.exists(ldir):
             os.makedirs(ldir)
         # Already got?
