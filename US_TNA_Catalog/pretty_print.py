@@ -8,6 +8,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--filen", help="File name", type=str, required=True)
+parser.add_argument("--match", help="Filter", type=str, required=False, default=None)
 parser.add_argument(
     "--startl", help="First line to print", type=int, required=False, default=0
 )
@@ -23,6 +24,8 @@ while True:
     line = fd.readline()
     if not line:
         break
+    if args.match is not None and args.match not in line:
+        continue
     if line[0] == ",":
         continue
     count += 1
